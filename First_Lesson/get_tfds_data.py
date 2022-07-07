@@ -14,3 +14,9 @@ for item in mnist_train.take(1):
     print(item.keys())
     print(item["image"])
     print(item["label"])
+
+mnist_test, info =  tfds.load(name= "fashion_mnist",with_info="true")
+print(info)
+
+
+(train_images,train_labels),(test_images,test_labels) = tfds.as_numpy(tfds.load(name= "fashion_mnist",split = ["train",'test'], batch_size=1, as_supervised = True))
